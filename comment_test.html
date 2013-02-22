@@ -1,0 +1,33 @@
+<head>
+  <title>comment_test</title>
+</head>
+
+<body>
+  <div class="media">
+    <div class="media-body">
+      <h1 class="media-heading">Example Content</h1>
+      This is an example content. Please feel free to comment!
+    </div>
+    {{> comments}}
+</body>
+
+<template name="comments">
+  <h2>Comments</h2>
+  <ul id="comments">
+    {{#each comments}}
+      <li>{{> comment }}</li>
+    {{/each}}
+  </ul>
+
+  <form id="new_comment">
+    <input type="text" name="from" id="new_comment_from">:
+    <input type="text" name="text" id="new_comment_text">
+    <input type="submit" value="Add">
+  </form>
+</template>
+
+<template name="comment">
+  <strong>{{from}}</strong>: 
+  {{text}} (<a href="#" class="vote-up">vote up</a> - {{rating}} - <a href="#" class="vote-down">vote down</a>)
+</template>
+
